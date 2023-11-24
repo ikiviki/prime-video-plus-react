@@ -5,6 +5,7 @@
  */
 
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // Functional Component with Named Function
 function App() {
@@ -13,7 +14,10 @@ function App() {
   return (
     <div>
       <Header></Header>
+      <main className="container mt-5 pt-2">
         <h1>Hello App-Comp !!</h1>
+      </main>
+      <Footer />
     </div>
   );
 }
