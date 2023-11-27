@@ -1,7 +1,14 @@
+import { Helmet } from "react-helmet-async";
+
 const TodosPage = () => {
   return (
-    <div>TodosPage</div>
-  )
-}
+    <div>
+      <Helmet>
+        <title>Todos</title>
+      </Helmet>
+      TodosPage
+    </div>
+  );
+};
 
-export default TodosPage
+export default TodosPage;

@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async";
+
 const HomePage = () => {
   return (
     <div className="px-4 py-5 my-5 text-center">
+      <Helmet>
+        <title>Home Page</title>
+      </Helmet>
       <h1 className="display-5 fw-bold text-body-emphasis">
         Welcome to Prime Video Plus App!
       </h1>

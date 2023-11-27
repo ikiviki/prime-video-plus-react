@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet-async";
 import LatestVideoList from "./components/LatestVideoList";
 
 const PrimeVideoPage = () => {
   return (
     <div>
+      <Helmet>
+        <title>Prime Videos</title>
+      </Helmet>
       <h1>Prime Video App</h1>
 
       <h2>Latest Videos | Props Demo</h2>

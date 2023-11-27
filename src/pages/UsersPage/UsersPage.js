@@ -1,7 +1,14 @@
+import { Helmet } from "react-helmet-async";
+
 const UsersPage = () => {
   return (
-    <div>UsersPage</div>
-  )
-}
+    <div>
+      <Helmet>
+        <title>User Management</title>
+      </Helmet>
+      UsersPage
+    </div>
+  );
+};
 
-export default UsersPage
+export default UsersPage;

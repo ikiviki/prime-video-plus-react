@@ -1,7 +1,14 @@
+import { Helmet } from "react-helmet-async";
+
 const ProductsPage = () => {
   return (
-    <div>ProductsPage</div>
-  )
-}
+    <div>
+      <Helmet>
+        <title>Products</title>
+      </Helmet>
+      ProductsPage
+    </div>
+  );
+};
 
-export default ProductsPage
+export default ProductsPage;
