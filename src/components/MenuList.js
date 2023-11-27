@@ -1,47 +1,49 @@
+import { Link } from "react-router-dom";
+
 // FC with Arrow fn
 const MenuList = () => {
   // must return JSX
   return (
     <ul className="navbar-nav me-auto mb-2 mb-md-0">
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="/">
+        <Link className="nav-link active" to="/">
           Home
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/prime-video">
+        <Link className="nav-link" to="/prime-video">
           Prime Video
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/users">
+        <Link className="nav-link" to="/users">
           User Management
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/products">
+        <Link className="nav-link" to="/products">
           Products
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/todos">
+        <Link className="nav-link" to="/todos">
           Todos App
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/unit-testing-demo">
+        <Link className="nav-link" to="/unit-testing-demo">
           Unit Testing Demo
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/about-us">
+        <Link className="nav-link" to="/about-us">
           About Us
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/contact-us">
+        <Link className="nav-link" to="/contact-us">
           Contact Us
-        </a>
+        </Link>
       </li>
     </ul>
   );

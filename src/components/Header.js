@@ -1,5 +1,6 @@
 // Header Component
 // Fn Comp with Named Fn
+import { Link } from "react-router-dom";
 import MenuList from "./MenuList";
 
 function Header() {
@@ -8,9 +9,9 @@ function Header() {
     <header>
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             Prime Video Plus App
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
