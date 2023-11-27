@@ -1,3 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.css'; // Tightly Integrating Bootstrap (RECOMMENDED)
+/**
+ * Put any other imports below so that CSS from your
+ * components takes precedence over default styles.
+ */
 import React from "react"; // Import official react library.
 import ReactDOM from "react-dom/client"; // Importing react-dom to work with the DOM.
 import "./index.css"; // Importing css.
