@@ -1,6 +1,6 @@
 const LatestVideo = (props) => {
   // receiving data thru props
-  console.log(props);
+  // console.log(props); // Checking props log
   /**
    * props are objects
    * props are read-only

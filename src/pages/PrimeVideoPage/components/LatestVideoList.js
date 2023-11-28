@@ -21,6 +21,7 @@ const latestVideos = [
 ];
 
 const LatestVideoList = () => {
+  // Keeping the data in parent comp.
   return (
     <div className="row">
       <div className="col-md-3">
@@ -43,12 +44,6 @@ const LatestVideoList = () => {
         >
           {latestVideos[1].publishedOn}
         </LatestVideo>
-      </div>
-      <div className="col-md-3">
-        <LatestVideo />
-      </div>
-      <div className="col-md-3">
-        <LatestVideo />
       </div>
     </div>
   );
