@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import LatestVideoList from "./components/LatestVideoList";
 import TrendingVideoList from "./components/TrendingVideoList";
+import RecommendedVideoList from "./components/RecommendedVideoList";
 
 const PrimeVideoPage = () => {
   return (
@@ -22,6 +23,7 @@ const PrimeVideoPage = () => {
         Recommended Videos | States, Events, Conditional Rendering, Lists & Keys
         Demo
       </h2>
+      <RecommendedVideoList />
       <hr />
 
       <h2>Styling in React JS</h2>
