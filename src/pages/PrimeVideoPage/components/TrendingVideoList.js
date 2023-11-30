@@ -39,11 +39,12 @@ const TrendingVideoList = () => {
       </h4>
       <div className="col-md-3">
         <TrendingVideo
-          title={trendingVideos[0].title}
-          description={trendingVideos[0].description}
-          thumbnailUrl={trendingVideos[0].thumbnailUrl}
-          category={trendingVideos[0].category}
-          publishedOn={trendingVideos[0].publishedOn}
+          // title={trendingVideos[0].title}
+          // description={trendingVideos[0].description}
+          // thumbnailUrl={trendingVideos[0].thumbnailUrl}
+          // category={trendingVideos[0].category}
+          // publishedOn={trendingVideos[0].publishedOn}
+          {...trendingVideos[0]}
         />
       </div>
       <div className="col-md-3">

@@ -1,18 +1,18 @@
-const TrendingVideo = (props) => {
+const TrendingVideo = ({title, description, thumbnailUrl, category, publishedOn}) => {
   return (
     <div className="card">
       <img
-        src={props.thumbnailUrl}
+        src={thumbnailUrl}
         className="card-img-top"
-        alt={props.title}
+        alt={title}
       />
       <div className="card-body">
-        <h5 className="card-title">{props.title}</h5>
-        <p className="card-text">{props.description}</p>
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text">{description}</p>
       </div>
       <ul className="list-group list-group-flush">
-        <li className="list-group-item">{props.category}</li>
-        <li className="list-group-item">{props.publishedOn}</li>
+        <li className="list-group-item">{category}</li>
+        <li className="list-group-item">{publishedOn}</li>
       </ul>
     </div>
   );
