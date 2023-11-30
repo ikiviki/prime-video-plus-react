@@ -3,10 +3,11 @@
  * component definition
  * export
  */
+import "./App.css";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import PrimeVideoPage from "./pages/PrimeVideoPage/PrimeVideoPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
@@ -24,6 +25,7 @@ function App() {
     <BrowserRouter>
       <Header></Header>
       <main className="container mt-5 pt-2">
+        <p className="red-text">wow</p>
         {/* Config the routes */}
         <Routes>
           <Route path="/" element={<HomePage />} />

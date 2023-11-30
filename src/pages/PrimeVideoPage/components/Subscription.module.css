@@ -1,0 +1,8 @@
+/* This is COMPONENT-SPECIFIC css */
+.subscriptionInfo {
+  color: green;
+  background-color: lightcyan;
+  border: solid 3px green;
+  padding: 20px;
+  border-radius: 10px;
+}

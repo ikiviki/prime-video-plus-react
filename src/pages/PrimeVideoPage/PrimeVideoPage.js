@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import LatestVideoList from "./components/LatestVideoList";
 import TrendingVideoList from "./components/TrendingVideoList";
 import RecommendedVideoList from "./components/RecommendedVideoList";
+import Subscription from "./components/Subscription";
 
 const PrimeVideoPage = () => {
   return (
@@ -27,6 +28,7 @@ const PrimeVideoPage = () => {
       <hr />
 
       <h2>Styling in React JS</h2>
+      <Subscription />
       <hr />
     </div>
   );
