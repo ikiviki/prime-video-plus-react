@@ -85,7 +85,13 @@ const RecommendVideoList = () => {
             {recommendedVideos.map((video, index) => {
               return (
                 <div className="col-md-3" key={video.id}>
-                  <div className="card">
+                  <div
+                    className="card"
+                    // INLINE STYLES not recommended inside LOOPS
+                    // style={{
+                    //   backgroundColor: "red",
+                    // }}
+                  >
                     <img
                       src={video.thumbnailUrl}
                       className="card-img-top"
