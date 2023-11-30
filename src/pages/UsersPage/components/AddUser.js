@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const AddUser = () => {
@@ -6,6 +7,9 @@ const AddUser = () => {
     phone: "",
     email: "",
   });
+
+  const [isSaved, setIsSaved] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const handleChange = (event) => {
     setAddUserForm({
@@ -17,6 +21,25 @@ const AddUser = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     console.log(addUserForm); // submittable form data to the REST API
+
+    // Let's send the above data to the REST API
+    // 1. What's the REST API URL? https://jsonplaceholder.typicode.com/users
+    // 2. What's the HTTP Method? POST
+    // 3. What's the REST API Client Tool? axios (npm i axios) or fetch
+    // 4. What's the form data? addUserForm
+    axios
+      .post("https://jsonplaceholder.typicode.com/users", addUserForm)
+      .then((res) => {
+        console.log(res);
+        setIsSaved(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsError(true);
+      })
+      .finally(() => {
+        console.log("Finally !!!!!");
+      });
   };
 
   return (
@@ -65,6 +88,9 @@ const AddUser = () => {
             onChange={handleChange}
           />
         </div>
+
+        {isSaved && <div className="alert alert-success">POST Success !!</div>}
+        {isError && <div className="alert alert-danger">Unable to create user. Try again later.</div>}
 
         <button type="submit" className="btn btn-primary">
           Create User
