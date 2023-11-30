@@ -86,7 +86,11 @@ const RecommendVideoList = () => {
               return (
                 <div className="col-md-3" key={video.id}>
                   <div className="card">
-                    <img src="" className="card-img-top" alt="" />
+                    <img
+                      src={video.thumbnailUrl}
+                      className="card-img-top"
+                      alt={video.title}
+                    />
                     <div className="card-body">
                       <h5 className="card-title">{video.title}</h5>
                       <p className="card-text">{video.description}</p>
