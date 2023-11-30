@@ -1,4 +1,5 @@
 import { useState } from "react";
+import RecommendVideo from "./RecommendVideo";
 
 const RecommendVideoList = () => {
   // Comp wide updatable data.
@@ -84,39 +85,55 @@ const RecommendVideoList = () => {
             {/* Lists = looping through the array and rendering in JSX. */}
             {recommendedVideos.map((video, index) => {
               return (
-                <div className="col-md-3" key={video.id}>
-                  <div
-                    className="card"
-                    // INLINE STYLES not recommended inside LOOPS
-                    // style={{
-                    //   backgroundColor: "red",
-                    // }}
-                  >
-                    <img
-                      src={video.thumbnailUrl}
-                      className="card-img-top"
-                      alt={video.title}
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title">{video.title}</h5>
-                      <p className="card-text">{video.description}</p>
+                /* 
+                  ************* COMMENTED FOR MY UNDERSTANDING *************
+
+                  <div className="col-md-3" key={video.id}>
+                    <div
+                      className="card"
+                      // INLINE STYLES not recommended inside LOOPS
+                      // style={{
+                      //   backgroundColor: "red",
+                      // }}
+                    >
+                      <img
+                        src={video.thumbnailUrl}
+                        className="card-img-top"
+                        alt={video.title}
+                      />
+                      <div className="card-body">
+                        <h5 className="card-title">{video.title}</h5>
+                        <p className="card-text">{video.description}</p>
+                      </div>
+                      <ul className="list-group list-group-flush">
+                        <li className="list-group-item">{video.category}</li>
+                        <li className="list-group-item">{video.publishedOn}</li>
+                        <li className="list-group-item">
+                          <button
+                            className="btn btn-success btn-sm"
+                            onClick={handleWatchlist.bind(this, index, video.id)}
+                            // onClick={() => handleWatchlist(index, video.id)} // NOT RECOMMENDED INSIDE MAP
+                          >
+                            {video.isInWatchlist
+                              ? "In Watchlist"
+                              : "Add to Watchlist"}
+                          </button>
+                        </li>
+                      </ul>
                     </div>
-                    <ul className="list-group list-group-flush">
-                      <li className="list-group-item">{video.category}</li>
-                      <li className="list-group-item">{video.publishedOn}</li>
-                      <li className="list-group-item">
-                        <button
-                          className="btn btn-success btn-sm"
-                          onClick={handleWatchlist.bind(this, index, video.id)}
-                          // onClick={() => handleWatchlist(index, video.id)} // NOT RECOMMENDED INSIDE MAP
-                        >
-                          {video.isInWatchlist
-                            ? "In Watchlist"
-                            : "Add to Watchlist"}
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
+                  </div> 
+
+                  *****************************************************************
+                        
+                */
+
+                // TODO (DONE) - use CallBacks from child to parent:-
+                <div className="col-md-3" key={video.id}>
+                  <RecommendVideo
+                    {...video}
+                    index={index}
+                    CallBack={handleWatchlist}
+                  />
                 </div>
               );
             })}
