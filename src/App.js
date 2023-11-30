@@ -16,6 +16,7 @@ import TodosPage from "./pages/TodosPage/TodosPage";
 import UnitTestingDemoPage from "./pages/UnitTestingDemoPage/UnitTestingDemoPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
+import UserDetails from "./pages/UsersPage/components/UserDetails";
 
 // Functional Component with Named Function
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/prime-video" element={<PrimeVideoPage />} />
           <Route path="/users" element={<UsersPage />} />
+          <Route path="/users/1" element={<UserDetails />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/todos" element={<TodosPage />} />
           <Route path="/unit-testing-demo" element={<UnitTestingDemoPage />} />
