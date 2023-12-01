@@ -1,4 +1,11 @@
 import { Helmet } from "react-helmet-async";
+import styled from "styled-components";
+
+const StyledTitle = styled.h1`
+  text-align: center;
+  color: red;
+  padding: 50px;
+`;
 
 const AboutUsPage = () => {
   return (
@@ -6,7 +13,7 @@ const AboutUsPage = () => {
       <Helmet>
         <title>About</title>
       </Helmet>
-      AboutUsPage
+      <StyledTitle>AboutUsPage</StyledTitle>
     </div>
   );
 };
