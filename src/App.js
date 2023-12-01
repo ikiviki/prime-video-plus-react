@@ -5,8 +5,8 @@
  */
 import "./App.css";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./layouts/Header";
+import Footer from "./layouts/Footer";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 
