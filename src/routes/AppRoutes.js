@@ -18,7 +18,8 @@ const AppRoutes = () => {
       <Route path="/prime-video" element={<PrimeVideoPage />} />
       <Route path="/users" element={<UsersPage />} />
       <Route path="/users/add" element={<AddUser />} />
-      <Route path="/users/1" element={<UserDetails />} />
+      {/* Dynamic Routing */}
+      <Route path="/users/:userId" element={<UserDetails />} />
       {/* TODO: Nested routing - move into routes folder
           <Route path="/users" element={<UsersPage />}>
             <Route path="/users/add" element={<AddUser />} />
