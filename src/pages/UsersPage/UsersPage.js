@@ -61,6 +61,14 @@ const UsersPage = () => {
 
       <div className="row">
         <h2>Listing Users</h2>
+        {/* {isLoading && (
+          <div className="text-center">
+            <div>
+          </div>
+        )} */}
+
+        {/* try to implement toast here for Promise and other items to be displayed */}
+
         {users.map((user) => {
           return (
             <div className="col-md-3 mt-2" key={user.id}>

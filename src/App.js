@@ -9,6 +9,7 @@ import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
+import { CartProvider } from "./contexts/CartContext";
 
 // Functional Component with Named Function
 function App() {
@@ -16,10 +17,13 @@ function App() {
   // A Component must return JSX
   return (
     <BrowserRouter>
-      <Header></Header>
-      <main className="container mt-5 pt-2">
-        <AppRoutes />
-      </main>
+      <CartProvider>
+        <Header></Header>
+        <main className="container mt-5 pt-2">
+          {/* Config the routes in between header and footer */}
+          <AppRoutes />
+        </main>
+      </CartProvider>
       <Footer />
     </BrowserRouter>
   );

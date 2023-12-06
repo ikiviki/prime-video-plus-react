@@ -2,8 +2,13 @@
 // Fn Comp with Named Fn
 import { Link } from "react-router-dom";
 import MenuList from "./MenuList";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
 
 function Header() {
+  const { cartItems } = useContext(CartContext);
+  console.log(`cart Items : ${cartItems}`);
+
   // must return JSX
   return (
     <header>
@@ -26,13 +31,13 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <MenuList />
             <button className="btn btn-warning" type="button">
-                Cart (0)
-              </button>
+              Cart ({cartItems.length})
+            </button>
           </div>
         </div>
       </nav>
     </header>
   );
-};
+}
 
 export default Header;
