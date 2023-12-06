@@ -9,28 +9,32 @@ import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
 import ContactUsPage from "../pages/ContactUsPage/ContactUsPage";
 import AddUser from "../pages/UsersPage/components/AddUser";
 import UserDetails from "../pages/UsersPage/components/UserDetails";
+import { ErrorBoundary } from "react-error-boundary";
+import FallBack from "../components/FallBack";
 
 const AppRoutes = () => {
   return (
-    <Routes>
-      {/* Config  the routes */}
-      <Route path="/" element={<HomePage />} />
-      <Route path="/prime-video" element={<PrimeVideoPage />} />
-      <Route path="/users" element={<UsersPage />} />
-      <Route path="/users/add" element={<AddUser />} />
-      {/* Dynamic Routing */}
-      <Route path="/users/:userId" element={<UserDetails />} />
-      {/* TODO: Nested routing - move into routes folder
+    <ErrorBoundary fallback={<FallBack />}>
+      <Routes>
+        {/* Config  the routes */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/prime-video" element={<PrimeVideoPage />} />
+        <Route path="/users" element={<UsersPage />} />
+        <Route path="/users/add" element={<AddUser />} />
+        {/* Dynamic Routing */}
+        <Route path="/users/:userId" element={<UserDetails />} />
+        {/* TODO: Nested routing - move into routes folder
           <Route path="/users" element={<UsersPage />}>
             <Route path="/users/add" element={<AddUser />} />
             <Route path="/users/1" element={<UserDetails />} />
           </Route> */}
-      <Route path="/products" element={<ProductsPage />} />
-      <Route path="/todos" element={<TodosPage />} />
-      <Route path="/unit-testing-demo" element={<UnitTestingDemoPage />} />
-      <Route path="/about-us" element={<AboutUsPage />} />
-      <Route path="/contact-us" element={<ContactUsPage />} />
-    </Routes>
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/todos" element={<TodosPage />} />
+        <Route path="/unit-testing-demo" element={<UnitTestingDemoPage />} />
+        <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/contact-us" element={<ContactUsPage />} />
+      </Routes>
+    </ErrorBoundary>
   );
 };
 

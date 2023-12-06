@@ -10,6 +10,8 @@ import Footer from "./layouts/Footer";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 import { CartProvider } from "./contexts/CartContext";
+import { ErrorBoundary } from "react-error-boundary";
+import FallBack from "./components/FallBack";
 
 // Functional Component with Named Function
 function App() {
@@ -24,7 +26,9 @@ function App() {
           <AppRoutes />
         </main>
       </CartProvider>
-      <Footer />
+      <ErrorBoundary fallback={<FallBack />}>
+        <Footer />
+      </ErrorBoundary>
     </BrowserRouter>
   );
 }

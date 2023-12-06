@@ -4,6 +4,8 @@ import MenuList from "./MenuList";
 const Footer = function () {
   const copyrightYear = 2023;
   const developerName = "VK";
+  // developerName(); // Tested for Error Boundary.
+
   // must return JSX
   return (
     <footer className="text-center">
