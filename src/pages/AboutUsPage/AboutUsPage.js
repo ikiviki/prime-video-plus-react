@@ -21,6 +21,10 @@ const AboutUsPage = () => {
       </Helmet>
       <StyledTitle>AboutUsPage</StyledTitle>
 
+      {/* The following paragraph is to demo error boundary */}
+      {/* Enable the following line to see error boundary in action */}
+      {/* <p>{props.getAge()}</p> */}
+      <h2>HOC Demo</h2>
       <UpdatedHello />
       <UpdatedBye />
     </div>

@@ -36,7 +36,7 @@ describe("CompanyInfo", () => {
   });
 
   // Test spec #4
-  // Testing States and  Events
+  // Testing States and Events
   it("displays country name USA by default and updates JSX onChange of country input", () => {
     render(<CompanyInfo />);
     // Find the input element.

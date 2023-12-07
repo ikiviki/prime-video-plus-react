@@ -19,6 +19,7 @@ const TodosPage = () => {
   }, []);
 
   const handleAddTodo = () => {
+    // console.log(todoInputRef.current.value);
     const todoItem = {
       id: new Date().toISOString(),
       title: todoInputRef.current.value,

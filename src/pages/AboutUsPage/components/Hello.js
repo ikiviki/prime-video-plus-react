@@ -1,5 +1,5 @@
 const Hello = () => {
-  return <h1>Hello</h1>;
+  return <h4>Hello</h4>;
 };
 
 export default Hello;

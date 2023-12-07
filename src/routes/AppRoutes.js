@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+// Not-Lazy Loading.
 // import HomePage from "../pages/HomePage/HomePage";
 // import PrimeVideoPage from "../pages/PrimeVideoPage/PrimeVideoPage";
 // import UsersPage from "../pages/UsersPage/UsersPage";
@@ -13,6 +14,7 @@ import { ErrorBoundary } from "react-error-boundary";
 // import FallBack from "../components/FallBack";
 import { Suspense, lazy } from "react";
 
+// Lazy Loading.
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const PrimeVideoPage = lazy(() =>
   import("../pages/PrimeVideoPage/PrimeVideoPage")
