@@ -7,7 +7,7 @@ import { CartContext } from "../contexts/CartContext";
 
 function Header() {
   const { cartItems } = useContext(CartContext);
-  console.log(`cart Items : ${cartItems}`);
+  // console.log(`cart Items : ${cartItems}`);
 
   // must return JSX
   return (

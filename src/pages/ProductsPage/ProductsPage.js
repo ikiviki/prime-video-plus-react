@@ -22,7 +22,7 @@ const ProductsPage = () => {
   }, []);
 
   const handleAddToCart = (product) => {
-    console.log(product);
+    // console.log(product);
     addToCart([...cartItems, product]);
   };
 
