@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const RecommendVideo = ({
   title,
   description,
@@ -29,6 +31,16 @@ const RecommendVideo = ({
       </ul>
     </div>
   );
+};
+
+RecommendVideo.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  thumbnailUrl: PropTypes.string,
+  category: PropTypes.string,
+  publishedOn: PropTypes.string,
+  isInWatchlist: PropTypes.bool,
 };
 
 export default RecommendVideo;

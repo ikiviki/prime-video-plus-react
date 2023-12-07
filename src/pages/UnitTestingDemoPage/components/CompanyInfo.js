@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 // const CompanyInfo = (props) => {
 const CompanyInfo = ({ foundedYear }) => {
@@ -24,6 +25,10 @@ const CompanyInfo = ({ foundedYear }) => {
       <p>Please visit Bosch {countryName} Website !!</p>
     </div>
   );
+};
+
+CompanyInfo.propTypes = {
+  foundedYear: PropTypes.number,
 };
 
 export default CompanyInfo;

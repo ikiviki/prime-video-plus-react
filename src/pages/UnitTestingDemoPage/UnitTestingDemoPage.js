@@ -8,7 +8,7 @@ const UnitTestingDemoPage = () => {
         <title>Unit Testing Demo</title>
       </Helmet>
       UnitTestingDemoPage
-      <CompanyInfo foundedYear="1886" />
+      <CompanyInfo foundedYear={1886} />
     </div>
   );
 };
