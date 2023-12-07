@@ -8,6 +8,7 @@ const AddUser = () => {
     phone: "",
     email: "",
   });
+  const [submitButton, setSubmitButton] = useState("Create User");
 
   // const [isSaved, setIsSaved] = useState(false);
   // const [isError, setIsError] = useState(false);
@@ -29,10 +30,7 @@ const AddUser = () => {
     // 3. What's the REST API Client Tool? axios (npm i axios) or fetch
     // 4. What's the form data? addUserForm
     toast.promise(
-      axios.post(
-        "https://jsonplaceholder.typicode.com/users",
-        addUserForm
-      ),
+      axios.post("https://jsonplaceholder.typicode.com/users", addUserForm),
       // .then((res) => {
       // console.log(res);
       // setIsSaved(true);
@@ -45,10 +43,21 @@ const AddUser = () => {
       //   // console.log("Finally !!!!!");
       // }),
       {
-        loading: "Submitting form",
-        success: "POST Success !!",
-        error: "Unable to create user. Try again later.",
+        loading: () => {
+          setSubmitButton("Creating User...");
+          return "Submitting Form";
+        },
+        success: () => {
+          setSubmitButton("Create User");
+          return "POST Success !!";
+        },
+        error: () => {
+          setSubmitButton("Create User");
+          return "Unable to create user. Try again later.";
+        },
         // error: (err) => err.message,
+
+        // TODO: there is an error for use state - possible solution - useEffect();
       }
     );
   };
@@ -109,7 +118,7 @@ const AddUser = () => {
         <Toaster />
 
         <button type="submit" className="btn btn-primary">
-          Create User
+          {submitButton}
         </button>
       </form>
     </div>
