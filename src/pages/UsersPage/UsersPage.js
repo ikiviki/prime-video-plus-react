@@ -1,17 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const UsersPage = () => {
   const [users, setUsers] = useState([]); // Positive state.
-  const [isLoading, setIsLoading] = useState(true); // Loading state.
-  const [isError, setIsError] = useState([]); // Negative state.
+  // const [isLoading, setIsLoading] = useState(true); // Loading state.
+  // const [isError, setIsError] = useState([]); // Negative state.
 
   // Will be called only after INITIAL RENDERING.
   useEffect(() => {
     // Ideal place for us to connect to REST API.
-    console.log("Inside userEffect");
+    // console.log("Inside userEffect");
     /*
       What's the REST API URL? https://jsonplaceholder.typicode.com/users
       What's the HTTP Method? GET
@@ -25,11 +26,14 @@ const UsersPage = () => {
         );
         // console.log(response.data); // Successful response.
         setUsers(response.data);
+        toast.success("Users Fetched");
       } catch (err) {
-        console.log(err); // Error response.
-        setIsError(true);
+        setUsers([]);
+        // console.log(err); // Error response.
+        // setIsError(true);
+        toast.error("Error while fetching Users !!");
       } finally {
-        setIsLoading(false);
+        // setIsLoading(false);
       }
     };
 
@@ -61,14 +65,8 @@ const UsersPage = () => {
 
       <div className="row">
         <h2>Listing Users</h2>
-        {/* {isLoading && (
-          <div className="text-center">
-            <div>
-          </div>
-        )} */}
-
-        {/* try to implement toast here for Promise and other items to be displayed */}
-
+        {/* Toast */}
+        <Toaster />
         {users.map((user) => {
           return (
             <div className="col-md-3 mt-2" key={user.id}>

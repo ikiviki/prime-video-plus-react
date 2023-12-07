@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddUser = () => {
   const [addUserForm, setAddUserForm] = useState({
@@ -8,8 +9,8 @@ const AddUser = () => {
     email: "",
   });
 
-  const [isSaved, setIsSaved] = useState(false);
-  const [isError, setIsError] = useState(false);
+  // const [isSaved, setIsSaved] = useState(false);
+  // const [isError, setIsError] = useState(false);
 
   const handleChange = (event) => {
     setAddUserForm({
@@ -27,19 +28,29 @@ const AddUser = () => {
     // 2. What's the HTTP Method? POST
     // 3. What's the REST API Client Tool? axios (npm i axios) or fetch
     // 4. What's the form data? addUserForm
-    axios
-      .post("https://jsonplaceholder.typicode.com/users", addUserForm)
-      .then((res) => {
-        // console.log(res);
-        setIsSaved(true);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsError(true);
-      })
-      .finally(() => {
-        // console.log("Finally !!!!!");
-      });
+    toast.promise(
+      axios.post(
+        "https://jsonplaceholder.typicode.com/users",
+        addUserForm
+      ),
+      // .then((res) => {
+      // console.log(res);
+      // setIsSaved(true);
+      // })
+      // .catch((err) => {
+      //   console.log(err);
+      //   // setIsError(true);
+      // })
+      // .finally(() => {
+      //   // console.log("Finally !!!!!");
+      // }),
+      {
+        loading: "Submitting form",
+        success: "POST Success !!",
+        error: "Unable to create user. Try again later.",
+        // error: (err) => err.message,
+      }
+    );
   };
 
   return (
@@ -89,8 +100,13 @@ const AddUser = () => {
           />
         </div>
 
-        {isSaved && <div className="alert alert-success">POST Success !!</div>}
-        {isError && <div className="alert alert-danger">Unable to create user. Try again later.</div>}
+        {/* {isSaved && <div className="alert alert-success">POST Success !!</div>} */}
+        {/* {isError && (
+          <div className="alert alert-danger">
+            Unable to create user. Try again later.
+          </div>
+        )} */}
+        <Toaster />
 
         <button type="submit" className="btn btn-primary">
           Create User
