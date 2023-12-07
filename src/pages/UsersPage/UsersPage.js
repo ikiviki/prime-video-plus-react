@@ -23,7 +23,7 @@ const UsersPage = () => {
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/users"
         );
-        console.log(response.data); // Successful response.
+        // console.log(response.data); // Successful response.
         setUsers(response.data);
       } catch (err) {
         console.log(err); // Error response.

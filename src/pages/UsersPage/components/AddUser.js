@@ -20,7 +20,7 @@ const AddUser = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(addUserForm); // submittable form data to the REST API
+    // console.log(addUserForm); // submittable form data to the REST API
 
     // Let's send the above data to the REST API
     // 1. What's the REST API URL? https://jsonplaceholder.typicode.com/users
@@ -30,7 +30,7 @@ const AddUser = () => {
     axios
       .post("https://jsonplaceholder.typicode.com/users", addUserForm)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setIsSaved(true);
       })
       .catch((err) => {
@@ -38,7 +38,7 @@ const AddUser = () => {
         setIsError(true);
       })
       .finally(() => {
-        console.log("Finally !!!!!");
+        // console.log("Finally !!!!!");
       });
   };
 
