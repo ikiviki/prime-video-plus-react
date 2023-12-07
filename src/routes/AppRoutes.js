@@ -13,6 +13,9 @@ import { Route, Routes } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 // import FallBack from "../components/FallBack";
 import { Suspense, lazy } from "react";
+import OurHistory from "../pages/AboutUsPage/components/OurHistory";
+import OurTeam from "../pages/AboutUsPage/components/OurTeam";
+import OurCareers from "../pages/AboutUsPage/components/OurCareers";
 
 // Lazy Loading.
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
@@ -47,15 +50,15 @@ const AppRoutes = () => {
           <Route path="/users/add" element={<AddUser />} />
           {/* Dynamic Routing */}
           <Route path="/users/:userId" element={<UserDetails />} />
-          {/* TODO: Nested routing - move into routes folder
-          <Route path="/users" element={<UsersPage />}>
-            <Route path="/users/add" element={<AddUser />} />
-            <Route path="/users/1" element={<UserDetails />} />
-          </Route> */}
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/todos" element={<TodosPage />} />
           <Route path="/unit-testing-demo" element={<UnitTestingDemoPage />} />
-          <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/about-us" element={<AboutUsPage />}>
+            {/* Nested routing */}
+            <Route path="history" element={<OurHistory />} />
+            <Route path="team" element={<OurTeam />} />
+            <Route path="careers" element={<OurCareers />} />
+          </Route>
           <Route path="/contact-us" element={<ContactUsPage />} />
         </Routes>
       </ErrorBoundary>
