@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddUser = () => {
   const [addUserForm, setAddUserForm] = useState({
@@ -9,6 +10,7 @@ const AddUser = () => {
     email: "",
   });
   const [submitButton, setSubmitButton] = useState("Create User");
+  const navigate = useNavigate();
 
   // const [isSaved, setIsSaved] = useState(false);
   // const [isError, setIsError] = useState(false);
@@ -66,6 +68,13 @@ const AddUser = () => {
     <div className="row">
       <h1>Add User</h1>
       <form className="col-md-4 offset-md-4" onSubmit={handleFormSubmit}>
+        <button
+          type="button"
+          className="btn btn-outline-secondary mb-3"
+          onClick={() => navigate("/users")}
+        >
+          Go Back
+        </button>
         <div className="mb-3">
           <label htmlFor="nameInput" className="form-label">
             Name

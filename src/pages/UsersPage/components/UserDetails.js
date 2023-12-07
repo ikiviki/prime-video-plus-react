@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UserDetails = () => {
   const [user, setUser] = useState([]);
 
   // Reading URL param (userId) through useParams().
   const { userId } = useParams();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     /*
@@ -35,7 +37,7 @@ const UserDetails = () => {
         <span>View User Details</span>
       </h2>
       <div className="col-md-12">
-        <button type="button" className="btn btn-sm btn-outline-secondary">
+        <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => navigate("/users")}>
           Go Back
         </button>
         <div className="card mt-2">
