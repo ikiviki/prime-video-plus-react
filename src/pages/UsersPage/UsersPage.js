@@ -20,17 +20,20 @@ const UsersPage = () => {
       Should we send any form data? NO
     */
     const fetchUsers = async () => {
+      toast.loading("Fetching Users");
       try {
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/users"
         );
         // console.log(response.data); // Successful response.
         setUsers(response.data);
+        toast.dismiss();
         toast.success("Users Fetched");
       } catch (err) {
         setUsers([]);
         // console.log(err); // Error response.
         // setIsError(true);
+        toast.dismiss();
         toast.error("Error while fetching Users !!");
       } finally {
         // setIsLoading(false);

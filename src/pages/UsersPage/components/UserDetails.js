@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
 const UserDetails = () => {
@@ -31,13 +32,37 @@ const UserDetails = () => {
     fetchUserById();
   }, []);
 
+  const handleDeleteUser = async () => {
+    toast.loading("Deleting");
+    try {
+      const response = await axios.delete(
+        `https://jsonplaceholder.typicode.com/users/${userId}`
+      );
+      if (response.status === 200) {
+        toast.dismiss();
+        toast.success("User Deleted");
+        setTimeout(() => {
+          navigate("/users");
+        }, 3000);
+      }
+    } catch (err) {
+      toast.dismiss();
+      toast.error(err.message);
+    }
+  };
+
   return (
     <div className="row mt-2">
       <h2>
         <span>View User Details</span>
       </h2>
+      <Toaster />
       <div className="col-md-12">
-        <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => navigate("/users")}>
+        <button
+          type="button"
+          className="btn btn-sm btn-outline-secondary"
+          onClick={() => navigate("/users")}
+        >
           Go Back
         </button>
         <div className="card mt-2">
@@ -49,7 +74,12 @@ const UserDetails = () => {
             <p className="card-text">Email: {user.email}</p>
             <p className="card-text">Phone: {user.phone}</p>
             <button className="btn btn-primary">Edit</button>
-            <button className="btn btn-outline-danger">Delete</button>
+            <button
+              className="btn btn-outline-danger ms-2"
+              onClick={handleDeleteUser}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
