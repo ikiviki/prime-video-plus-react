@@ -42,7 +42,7 @@ const AddUser = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     defaultValues: {
       name: "",
@@ -211,7 +211,12 @@ const AddUser = () => {
         )} */}
         <Toaster />
 
-        <button id="submitButton" type="submit" className="btn btn-primary">
+        <button
+          id="submitButton"
+          // disabled={!isValid} // Working but - required not coming - check
+          type="submit"
+          className="btn btn-primary"
+        >
           {submitButton}
         </button>
       </form>
