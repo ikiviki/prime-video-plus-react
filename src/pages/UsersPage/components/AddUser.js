@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const AddUser = () => {
   const [addUserForm, setAddUserForm] = useState({
@@ -11,7 +11,32 @@ const AddUser = () => {
     email: "",
   });
 
-  const [submitButton, setSubmitButton] = useState("Create User");
+  const { userId } = useParams();
+  useEffect(() => {
+    const fetchUserById = async () => {
+      toast.dismiss();
+      try {
+        const response = await axios.get(
+          `https://jsonplaceholder.typicode.com/users/${userId}`
+        );
+        let responseData = response.data;
+        setAddUserForm({
+          name: responseData.name,
+          phone: responseData.phone,
+          email: responseData.email,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    if (userId) {
+      fetchUserById();
+    }
+  }, []);
+
+  let submitButtonName = userId ? "Update User" : "Create User";
+  const [submitButton, setSubmitButton] = useState(submitButtonName);
   const navigate = useNavigate();
 
   const {
@@ -51,7 +76,12 @@ const AddUser = () => {
     // debugger;
     toast.promise(
       // axios.post("https://jsonplaceholder.typicode.com/users", data),
-      axios.post("https://jsonplaceholder.typicode.com/users", addUserForm),
+      userId
+        ? axios.put(
+            `https://jsonplaceholder.typicode.com/users/${userId}`,
+            addUserForm
+          )
+        : axios.post("https://jsonplaceholder.typicode.com/users", addUserForm),
       // .then((res) => {
       // console.log(res);
       // setIsSaved(true);
@@ -65,22 +95,25 @@ const AddUser = () => {
       // }),
       {
         loading: () => {
-          setSubmitButton("Creating User...");
+          setSubmitButton(userId ? "Updating User..." : "Creating User...");
           document.getElementById("submitButton").disabled = true;
           return "Submitting Form";
         },
         success: () => {
-          setSubmitButton("Create User");
-          setAddUserForm({
-            name: "",
-            phone: "",
-            email: "",
-          });
+          setSubmitButton(submitButtonName);
+          console.log(`Payload : `);
+          console.log(addUserForm);
+          !userId &&
+            setAddUserForm({
+              name: "",
+              phone: "",
+              email: "",
+            });
           document.getElementById("submitButton").disabled = false;
-          return "POST Success !!";
+          return userId ? "PUT Success !!" : "POST Success !!";
         },
         error: () => {
-          setSubmitButton("Create User");
+          setSubmitButton(submitButtonName);
           document.getElementById("submitButton").disabled = false;
           return "Unable to create user. Try again later.";
         },
@@ -93,7 +126,7 @@ const AddUser = () => {
 
   return (
     <div className="row">
-      <h1>Add User</h1>
+      <h1>{userId ? `Edit User ${userId}` : "Add User"}</h1>
       {/* Normal Form Submit */}
       {/* <form className="col-md-4 offset-md-4" onSubmit={handleFormSubmit}> */}
       {/* React Hook Form Submit */}
@@ -106,7 +139,9 @@ const AddUser = () => {
         <button
           type="button"
           className="btn btn-outline-secondary mb-3"
-          onClick={() => navigate("/users")}
+          onClick={() =>
+            userId ? navigate(`/users/${userId}`) : navigate("/users")
+          }
         >
           Go Back
         </button>

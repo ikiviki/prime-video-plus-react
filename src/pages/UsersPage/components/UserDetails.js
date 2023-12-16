@@ -19,13 +19,18 @@ const UserDetails = () => {
       Should we send any form data? NO
     */
     const fetchUserById = async () => {
+      toast.loading(`Fetching User ${userId} details`);
       try {
         const response = await axios.get(
           `https://jsonplaceholder.typicode.com/users/${userId}`
         );
+        toast.dismiss();
+        toast.success(`User ${userId} details Fetched`);
         setUser(response.data);
       } catch (err) {
         console.log(err);
+        toast.dismiss();
+        toast.error("Error while fetching User details !!");
       }
     };
 
@@ -73,7 +78,12 @@ const UserDetails = () => {
             <h5 className="card-title">Name: {user.name}</h5>
             <p className="card-text">Email: {user.email}</p>
             <p className="card-text">Phone: {user.phone}</p>
-            <button className="btn btn-primary">Edit</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => navigate(`/users/edit/${userId}`)}
+            >
+              Edit
+            </button>
             <button
               className="btn btn-outline-danger ms-2"
               onClick={handleDeleteUser}

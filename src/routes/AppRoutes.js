@@ -48,6 +48,7 @@ const AppRoutes = () => {
           <Route path="/prime-video" element={<PrimeVideoPage />} />
           <Route path="/users" element={<UsersPage />} />
           <Route path="/users/add" element={<AddUser />} />
+          <Route path="/users/edit/:userId" element={<AddUser />} />
           {/* Dynamic Routing */}
           <Route path="/users/:userId" element={<UserDetails />} />
           <Route path="/products" element={<ProductsPage />} />
