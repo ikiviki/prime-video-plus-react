@@ -28,6 +28,7 @@ TrendingVideo.propTypes = {
   description: PropTypes.string,
   thumbnailUrl: PropTypes.string,
   category: PropTypes.string,
+  publishedOn: PropTypes.string,
 };
 
 export default TrendingVideo;
