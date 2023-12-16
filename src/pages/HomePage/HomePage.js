@@ -1,6 +1,9 @@
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="px-4 py-5 my-5 text-center">
       <Helmet>
@@ -16,12 +19,17 @@ const HomePage = () => {
           hendrerit sed, facilisis luctus tellus
         </p>
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button type="button" className="btn btn-primary btn-lg px-4 gap-3">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg px-4 gap-3"
+            onClick={() => navigate("/prime-video")}
+          >
             Browse Prime Video
           </button>
           <button
             type="button"
             className="btn btn-outline-secondary btn-lg px-4"
+            onClick={() => navigate("/users")}
           >
             Manage Users
           </button>
