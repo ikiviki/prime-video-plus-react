@@ -1,0 +1,594 @@
+
+Day 1
+======
+Webapps 
+--------
+  1. Server Side Rendering Apps (SSR) / Traditional Webapps 
+      * Pages will refresh / reload 
+
+      Codebase 
+      ---------
+        index.php
+          HTML, CSS, JS + Back End (PHP) + DB Query (SQL)
+
+        about.php
+          HTML, CSS, JS + Back End (PHP) + DB Query (SQL)
+
+      Server 
+      ------- 
+        1 Server 
+        * port number 8080 
+        * localhost:8080/index.php 
+
+        Response: HTML, CSS, JS + Data
+
+      Adv 
+      ----
+        1. Search Engine Friendly 
+        2. Initial Loading will NOT take more time
+
+      Disadv 
+      -----
+        1. Server has to do the heavy-lifting of going thru front end codes also
+        2. Slower Webapps 
+        3. Bandwidth consumption is more
+        4. Expensive 
+        5. Bad Developer Experience 
+        6. Bad User Experience
+
+  2. Client Side Rendering Apps (CSR) / Modern Webapps = SPA + RESTful API
+      * Pages will NOT refresh / reload 
+
+      Codebase 
+      ---------
+        2 Apps 
+        -------
+          1 Front End App a.k.a Single Page Apps (SPA)
+              HTML, CSS, JS 
+
+          1 Back End App a.k.a RESTful API
+              Back End (NodeJS, ExpressJS) + DB Query (MongoDB / SQL)
+
+      Servers 
+      ------- 
+        1 Server for the Front End App 
+          * port number: 4000
+          * Requesting: localhost:4000   (publicly exposed)
+
+            Response: HTML, CSS, JS, (without Data)
+          
+        1 Server for the Back End App 
+          * port number: 8081
+          * Requesting: localhost:8081/users
+          
+            Response: Data (JSON)
+
+      Adv 
+      ----
+        1. Workload is shared between 2 servers.
+        2. Faster Webapps 
+        3. Bandwidth consumption is less
+        4. Less Expensive 
+        5. Better Developer Experience 
+        6. Better User Experience
+
+      Disadv 
+      ----
+        1. NOT Search Engine Friendly (can be fixed -- We Won't do)
+        2. Initial Loading will take longer (can be fixed -- We fixed it with lazy loading)
+
+
+Browser
+-------
+  * HTML Renderer 
+  * CSS Parser 
+  * JS Engine 
+
+
+Single Page Apps (SPA)
+----------------------
+  7 Characteristics 
+  ------------------
+    1. Pages should NOT reload 
+    2. URL should change 
+    3. History should be maintained w/o Page refresh 
+    4. Header and Footer should NOT be loaded again and again
+    5. In b/w header and footer -- contextual updates should show up 
+    6. Active Menu should be set
+    7. Page title should change
+
+  SPA Frameworks / Libraries
+  ---------------------------
+    #1 React JS (library)
+    #2 Angular 2+ (Framework)
+    #3 VueJS (Framework)
+    #4 Svelte (Framework)
+
+
+Course Projects
+------
+  App #1 in React JS 
+  App #2 in Redux Toolkit 
+
+  App #3 in NodeJS (SSR)
+  App #4 in NodeJS (RESTful API)
+  App #5 in NodeJS (Video Conferencing App + Chat App)
+
+  2 Books 
+
+=================================
+
+2 Types of Languages by Data Typing 
+------------------------
+  1. Strictly-Typed Languages 
+      Examples: Java, C#
+
+      Syntax: 
+        String myName = "Arun"; 
+        myName = "John"; // valid
+        myName = 100; // error 
+        int x = 10;
+        x = "Arun"; // error 
+
+
+  2. Loosely-Typed Languages 
+      Examples: JavaScript, PHP, Python 
+
+      Syntax in JS 
+      -----
+        var myName = "Arun"; //valid
+        myName = "John"; // valid 
+        myName = 10; // valid 
+        myName = true; //valid
+        myName = []; //valid
+        myName = {}; //valid
+        myName = undefined; //valid
+        myName = null; //valid
+        myName = function() {} //valid
+
+Data Types in JS
+----------
+  1. Primitive Data Types 
+      string, number, boolean, undefined, null, symbol (ES2015), big int (ES2017)
+
+  2. Non-Primitive Data Types / Reference Types
+      Object, Array, RegEx 
+
+
+Day 2
+======
+3 Layers to develop website / webapps 
+----
+  1. Structural Layer 
+      HTML 
+  2. Presentation Layer 
+      CSS
+  3. Interaction Layer 
+      JavaScript
+
+
+HTML 
+-----
+  * Standard 
+  * Maintained by W3C
+
+CSS 
+----
+  * Standard 
+  * Maintained by W3C
+
+ECMAScript
+-------
+  * Standard 
+  * Grammar 
+  * Maintained by ECMA International
+  * Implementations: JavaScript, JScript, ActionScript, Google AppsScript, QtScript
+
+  ES Before June 2015
+  -------
+    * It was NOT Object Oriented Programming Language
+    * no class, no extends, no import, no export
+  
+  ES After June 2015 (ES2015)
+  -------
+    * It has become Object Oriented Programming Language
+    * class, extends, import, export
+
+------------------
+
+Todos
+=====
+  1. Learn about JSON stringify and JSON parse 
+  2. Learn about duplicating object 
+    Ref: https://code.tutsplus.com/the-best-way-to-deep-copy-an-object-in-javascript--cms-39655a
+
+  3. Have an object in const and try changing its' properties 
+  4. Have an array in const and try changing its' indices 
+  5. Learn about using spread operator in an object to duplicate
+  6. Learn about promise 
+
+Refer: https://leanpub.com/understandinges6/read 
+
+
+
+Day 4:
+=======
+Webapps
+Desktop Apps 
+Mobile Apps 
+Tablet Apps 
+TV Apps 
+Smartwatch Apps 
+
+Installable Webapps = Progressive Web App (PWA)
+---
+  * Installable in Mac or Windows or Linux 
+  * Installable in Android Mobiles and Tablets 
+  * Not Installable in iPhone and iPad 
+
+=====
+Think in React 
+-------------
+  1. Identifying the number of components 
+  2. Identifying the hierarchy of the components
+  3. ...
+  4. ...
+
+Components
+---------
+  * Reusable block of code made with JS, JSX and CSS (optional)
+  1. Functional Components  (RECOMMENDED)
+      * made with JS functions
+      * were called as dumb components / presentational components (before react v 16.8)
+      * were called as stateless components (before react v 16.8)
+      * no longer called as stateless/presentational/dumb components after hooks introduced
+
+      1.1 FC with Named Fn [DONE]
+      1.2 FC with Anonymous Fn [DONE]
+      1.3 FC with Arrow Fn [DONE]   (RECOMMENDED)
+
+  2. Class Components (NOT RECOMMENDED -- We will NOT write. We will NOT LEARN)
+      * made with JS class 
+      * were called as smart components / containers (before react v 16.8)
+      * were called as stateful components (before react v 16.8)
+      * no longer called as stateful/containers/smart components
+
+JSX Limitations 
+-------
+  * Will look like HTML. But really not.
+  * All tags must be self-closed or separately-closed 
+  * class attribute in element should become className
+  * JSX expressions must have one parent element.
+
+Project Structure
+---------------
+  src/
+    components or layouts
+      Header.js 
+      Footer.js 
+      MenuList.js 
+    pages/
+      HomePage/
+        HomePage.js
+      PrimeVideoPage/
+        PrimeVideoPage.js
+        components/
+          LatestVideo.js
+          TrendingVideo.js
+      AboutUsPage/
+        components/ or views/
+          History.js
+          Team.js
+          Career.js
+        AboutUsPage.js 
+    routes/
+      AppRoutes.js 
+
+
+Naming Conventions
+------------------
+  Refer: https://www.freecodecamp.org/news/clean-coding-for-beginners/
+
+  Casing Types 
+  --------
+    1. PascalCase 
+        * Recommended for Object Oriented Program's classes 
+        * also Recommended for Interface in TypeScript 
+        * Recommended for React Components and the folder of Components
+
+        examples 
+        ---
+          class CarDetails {
+
+          }
+
+          interface Employee {
+
+          }
+
+          const MenuList() => {
+            return (<p>some jsx</p>)
+          }
+
+    2. camelCase 
+        * Recommended for variables, let, const, functions, methods in JS & TS 
+        * Recommended for id's of html elements 
+        * Recommended for variables, const, fn, methods, event handlers of React Component
+        
+        examples 
+        -----
+          var myCar = 'BMW';
+          var isLoggedIn = true;
+
+          function getCarInfo() {
+            //....
+          }
+
+          function add() {
+
+          }
+    
+    3. kebab-case
+        * Recommended for URLs 
+        * Recommended for file names, folder names, assets in front end projects  
+        * Recommended for css classes unless you are using css modules in react 
+        * okay for id's of html elements if your architect says ok
+
+        examples 
+        -----
+          btn-primary
+          slideshow-container 
+          youtube-logo.png 
+
+    4. snake_case 
+        * never ever use this. 
+        * okay for const in JS & TS if architect accepts
+
+        examples
+        ---
+          const MAX_STUDENTS_PER_CLASS = 30;
+
+----------------
+
+Core Concepts of ReactJS
+=======
+  Props [DONE]
+  States [DONE]
+  Events [DONE]
+  Conditional Rendering [DONE]
+  Lists & Keys [DONE]
+  Styling in React Components 
+    1. External Styles [DONE]
+    2. Internal Styles [DONE]
+    3. Inline Styles [DONE]
+
+Advanced Topics
+---------
+  Routing [DONE]
+  Controlled Comp [DONE]
+  uncontrolled components [DONE]
+  Forms [DONE]
+  REST API Calls [DONE]
+  HOC [DONE]
+  Error boundary [DONE]
+  Fragment [DONE]
+  StrictMode [DONE]
+  Context API [DONE]
+  Unit Testing [DONE]
+  Build and Deployment [DONE]
+  Lazy Loading and Suspense [DONE]
+
+  Redux - Toolkit (2 hours)
+
+Single Page Apps (SPA)
+----------------------
+  7 Characteristics 
+  ------------------
+    1. Pages should NOT reload 
+    2. URL should change [DONE]
+    3. History should be maintained w/o Page refresh 
+    4. Header and Footer should NOT be loaded again and again
+    5. In b/w header and footer -- contextual updates should show up [DONE]
+    6. Active Menu should be set
+    7. Page title should change
+
+
+Limitations of ReactJS 
+-----
+  1. Doesn't have tools to help make SPA. Use react-router-dom 
+  2. Doesn't have any tool to help connect to REST API. use axios or else fetch (native js) 
+  3. Doesn't offer any form and form validation related tools. use either react-hook-form (recommended) or formik
+  4. For Most of the other things, you need to look for open source tools
+
+
+Routing in React JS 
+-------------------
+  Step 0
+  ------
+    Identify the Menus and also the URLs. Set them up in MenuList comp  
+
+    Home                      http://localhost:3000/
+    Prime Video               http://localhost:3000/prime-video
+    User Management           http://localhost:3000/users
+    Products                  http://localhost:3000/products
+    Todos App                 http://localhost:3000/todos
+    Unit Testing              http://localhost:3000/unit-testing-demo
+    About Us                  http://localhost:3000/about-us
+    Contact Us                http://localhost:3000/contact-us
+
+  Step 1:
+  ----
+    Check the app. URL is changed. Pages are still getting refreshed. 
+    Let's work on creating necessary components for the above URLs 
+
+    Create the following components for the Menus
+      Home                      HomePage Component 
+      Prime Video               PrimeVideoPage Component 
+      User Management           UserManagementPage Component
+      Products                  ProductsPage Component
+      Todos App                 TodosPage Component
+      Unit Testing              UnitTestingDemoPage Component
+      About Us                  AboutUsPage Component
+      Contact Us                ContactUsPage Component
+
+  Step 2:
+  -----
+    We need a third-party package to make it a SPA. 
+    npm i react-router-dom 
+
+    Let's seup react-router-dom in App.js 
+    Move the whole app under <BrowserRouter></BrowserRouter>
+
+  Step 3: 
+  -----
+    Let's Config the routes in between header and footer in App.js 
+
+     <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/prime-video" element={<PrimeVideoPage />} />
+        <Route path="/users" element={<UsersPage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/todos" element={<TodosPage />} />
+        <Route path="/unit-testing-demo" element={<UnitTestingDemoPage />} />
+        <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/contact-us" element={<ContactUsPage />} />
+      </Routes>
+
+  Step 4:
+  ----
+    Check the app. Components will be loaded properly. 
+
+    But, the pages will still refresh. Let's fix it.
+
+    Replace all <a href=''> tags with <Link to=''>
+
+  Step 5:
+  ------
+    Now, check the app. 
+      Pages Will NOT reload. 
+      History is maintained w/o Page refresh 
+      Header and Footer NOT loaded again and again
+
+    You have work on Setting the active menu and page title.
+
+
+Data Binding 
+------------
+  * keeping the data in variable in JS and displaying it in JSX
+
+Cross Component Communication
+-------
+  1. Parent to Child Component Communication [DONE]
+      using props 
+
+  2. Child to Parent Component Communication [TODO]
+      using props, passing callback fn as prop to the child comp 
+
+  3. Any to Any Component Communication 
+      3.1 using Context API of React JS [DONE]
+      3.2 using Redux-Toolkit [TO LEARN] / Redux / Zustand / MobX / Jotai / Recoil / Flux
+
+======
+Hooks
+======
+  * In react Hooks are functions 
+  * Hooks will have 'use' prefix 
+  * Rules of Hooks
+    * Only Call Hooks at the Top Level
+    * Only Call Hooks from React Functional components
+
+Context API to share data across the app 
+------
+  Step 1: create the context for the feature by using createContext() 
+  Step 2: export the context so that it can be used as a layer to share the data across many components in the app 
+          // try this is App.js 
+  Step 3: supply the data into the context through the provider 
+  Step 4: get the data using useContext() hook in the necessary component 
+  Step 5: if any comp wants to share the data through the context provider 
+  
+==================
+
+
+Errors in React JS 
+---
+  1. Compilation error 
+  2. Runtime error
+
+Higher Order Component (HOC) 
+----
+  * it is a function that takes in SourceComponent and returns a New Component 
+  * it is a pattern 
+
+=====
+
+SDLC 
+----
+Analyse Requirements => Design => Dev => QA => Deployment => Maintain 
+
+Dev => QA => (bugs) => Dev => QA => (bugs) => Dev => QA => (bugs) => Dev => QA => (QA PASSED) => Deployment 
+
+
+Dev 
+----
+  Source Document: FRD, LLD, HLD, UX Designs
+  Test Cases: 
+    1. add should work with only number -- it can receive params in the form of numbers 
+    2. add must return number 
+    3. add button should be disabled if other than numbers are entered 
+
+    function add(a, b){
+      if(typeof a === 'number' && typeof b === 'number'){
+        return a + b;
+      }
+    }
+
+    add(10, 20); // 30   
+    add(10, "30"); // 
+    add("10", "30"); // 
+
+
+Modern Approach 
+====  
+  Dev should write test cases => Dev should write the functionality code => (TOOLS) => (0 bugs) => Deployment 
+
+Automated Testing 
+-----
+  0. Static Type Checking (prop-types or typescript)
+  1. Unit Testing 
+      * testing the functional code by writing some code
+      * testing tiny, independent unit of the component
+      * testing the component in isolation (w/o connecting to rest api) 
+      * tools: 
+        1. JEST (Unit testing framework and also a TEST RUNNER), 
+        2. React Testing Library (RTL -- testing utility)
+    
+  2. Integration Testing 
+  3. End to End Testing 
+
+Testing Pattern:
+----------
+  AAA (Arrange, Act, Assert)
+
+Unit Testing Topics 
+------
+  Quick File walkthrough [DONE]
+  Testing JSX [DONE]
+  Testing Props [DONE]
+  Testing States and Events [DONE]
+  Testing Reducer and Context [TODO]
+
+
+====
+Build and Deployment
+-----
+  Build Checklist 
+  ----
+    1. check console for any errors.  
+    2. check console for any warnings. 
+    3. remove all console.logs 
+    4. look for run time errors. if anything occurs, fix the issue. 
+    5. look for 'Compiled with warnings' errors in command prompt. if found, fix them too
+
+  How to take a build?
+  ---
+    npm run build 
